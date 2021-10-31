@@ -16,7 +16,7 @@ const Account = () => {
   }
 
   return (
-    <Auth user={user}>
+    <Auth>
       <div className="flex min-h-screen justify-center items-center">
         <div className="text-center max-w-sm bg-gray-100 text-gray-700 px-8 py-4 rounded-lg">
           <h1 className="text-xl font-bold">Balance: {user.balance}</h1>

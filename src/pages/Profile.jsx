@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { login } from '../features/user'
+import { logout } from '../features/user'
 import Auth from './Auth'
 
 const Profile = () => {
@@ -10,20 +10,12 @@ const Profile = () => {
   const history = useHistory()
 
   const handleLogout = () => {
-    dispatch(
-      login({
-        name: '',
-        age: 0,
-        email: '',
-        balance: user.balance,
-        isLoggedin: false,
-      })
-    )
+    dispatch(logout())
     history.replace('/')
   }
 
   return (
-    <Auth user={user}>
+    <Auth>
       <div className="flex min-h-screen justify-center items-center">
         <div className="text-center max-w-sm bg-gray-100 text-gray-700 px-8 py-4 rounded-lg">
           <h1 className="text-xl font-bold">Profile Page</h1>

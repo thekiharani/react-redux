@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-const Auth = ({ user, children }) => {
+const Auth = ({ children }) => {
   const history = useHistory()
+  const user = useSelector((state) => state.user.value)
 
   useEffect(() => {
     if (!user.isLoggedin) {
