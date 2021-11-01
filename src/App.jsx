@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Route, Switch, Redirect } from 'react-router-dom'
+import { Effect, Reducer, State } from "./components/Hooks"
 import { AuthProvider } from './contexts/auth'
 import Account from './pages/Account'
 import Login from './pages/Login'
@@ -21,6 +22,13 @@ const App = () => {
           Profile
         </Link>
       </nav>
+
+      <State />
+
+      <Reducer />
+
+      <Effect />
+      
       <Switch>
         <Route exact path="/">
           <Login />
