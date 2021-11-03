@@ -63,7 +63,6 @@ export const Effect = () => {
     if (refresh <= 5) {
       const res = await axios.get('https://jsonplaceholder.typicode.com/users')
       setUsers(res.data)
-      console.log(res.data)
       /* axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
        console.log(res.data);
      }) */
@@ -73,12 +72,11 @@ export const Effect = () => {
   }
 
   const updateRefresh = (action = 'next') => {
-    if (action === 'next' && refresh < numbers.length - 1 ) {
+    if (action === 'next' && refresh < numbers.length - 1) {
       setRefresh(refresh + 1)
-    } else if (action === 'prev' && refresh > 0 ) {
+    } else if (action === 'prev' && refresh > 0) {
       setRefresh(refresh - 1)
-    }
-     else {
+    } else {
       setRefresh(0)
     }
   }
@@ -87,6 +85,10 @@ export const Effect = () => {
 
   useEffect(() => {
     getUsers()
+    return () => {
+      setUsers([])
+      setRefresh(0)
+    }
   }, [])
 
   return (
@@ -130,3 +132,15 @@ export const Effect = () => {
     </div>
   )
 }
+
+const Hooks = () => {
+  return (
+    <div className="">
+      <State />
+      <Reducer />
+      <Effect />
+    </div>
+  )
+}
+
+export default Hooks
